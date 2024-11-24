@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
 function App() {
+  const [showMore, setShowMore] = useState(false);
+
+  const handleToggle = () => {
+    setShowMore(!showMore);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <div className="main-section">
+        <h1>С Днем Рождения!</h1>
+        <p>Желаю сходить на концерт ГУФА!</p>
+        <button className="btn" onClick={handleToggle}>
+          {showMore ? "Скрыть поздравление" : "Нажми на меня"}
+        </button>
+        {showMore && (
+          <div className="extra-section">
+            <p>
+              Пусть каждый день приносит новые радости, теплые встречи и вдохновление!
+            </p>
+            <p>Ты заслуживаешь самого лучшего</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
