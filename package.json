@@ -2,6 +2,7 @@
   "name": "congratulations-site",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nstk.github.io/congratulations-site/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
