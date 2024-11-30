@@ -1,29 +1,24 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [showMore, setShowMore] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => {
-    setShowMore(!showMore);
+  const toggleEnvelope = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <div className="app-container">
-      <div className="main-section">
-        <h1>С Днем Рождения!</h1>
-        <p>Желаю сходить на концерт ГУФА!</p>
-        <button className="btn" onClick={handleToggle}>
-          {showMore ? "Скрыть поздравление" : "Нажми на меня"}
-        </button>
-        {showMore && (
-          <div className="extra-section">
-            <p>
-              Пусть каждый день приносит новые радости, теплые встречи и вдохновление!
-            </p>
-            <p>Ты заслуживаешь самого лучшего</p>
-          </div>
-        )}
+      <h1>С Днем Рождения!</h1>
+      <div className={`envelope ${isOpen ? 'open' : 'closed'}`} onClick={toggleEnvelope}>
+        <div className="flap top"></div>
+        <div className="flap bottom">Открыть</div>
+        <div className="body">
+          <p className={`message ${isOpen ? 'show' : 'hide'}`}>
+            Пусть каждый день будет полон радости, тепла и вдохновения!
+          </p>
+        </div>
       </div>
     </div>
   );

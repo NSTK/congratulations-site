@@ -1,82 +1,115 @@
-/* Основной стиль страницы */
+/* Стиль контейнера приложения */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url('https://source.unsplash.com/1600x900/?birthday') no-repeat center center fixed;
+  background: url('/public/florw.jpg') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
+/* Основной контейнер */
 .app-container {
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
+/* Заголовок */
 h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+  font-size: 4em;
+  margin-bottom: 20px;
+  color: aquamarine;
 }
 
-p {
-  font-size: 1.2em;
-  margin: 10px 0;
-}
-
-.btn {
-  background: #ff5722;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1em;
+/* Конверт */
+.envelope {
+  width: 600px;
+  height: 400px;
+  background: #c184b7;
+  /* Цвет фона конверта */
+  position: relative;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s;
+  /* Указатель мыши меняется на руку */
+  transition: all 0.6s ease;
+  /* Плавность изменений */
+  perspective: 800px;
+  /* Для 3D-эффекта */
 }
 
-.btn:hover {
-  background: #e64a19;
+/* Верхняя и нижняя створки */
+.envelope .flap {
+  background: #ef9292;
+  /* Цвет створок */
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 200px;
+  transition: all 0.6s ease;
+  /* Анимация створок */
+  border: 1px solid #333;
+  /* Граница створок */
 }
 
-.extra-section {
-  margin-top: 20px;
-  animation: fadeIn 0.5s ease-in-out;
+/* Верхняя створка в закрытом состоянии */
+.envelope.closed .top {
+  top: 0;
+  transform-origin: top;
+  /* Точка вращения — верхний край */
+  transform: rotateX(0deg);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Верхняя створка в открытом состоянии */
+.envelope.open .top {
+  top: 0;
+  transform-origin: top;
+  transform: rotateX(180deg);
+  /* Поворот на 180 градусов */
 }
 
-/* Адаптивность */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2em;
-  }
+/* Нижняя створка в закрытом состоянии */
+.envelope.closed .bottom {
+  bottom: 0;
+  transform-origin: bottom;
+  /* Точка вращения — нижний край */
+  transform: rotateX(0deg);
+}
 
-  p {
-    font-size: 1em;
-  }
+/* Нижняя створка в открытом состоянии */
+.envelope.open .bottom {
+  bottom: 0;
+  transform-origin: bottom;
+  transform: rotateX(180deg);
+  /* Поворот на 180 градусов */
+}
 
-  .btn {
-    padding: 8px 15px;
-    font-size: 0.9em;
-  }
+/* Основная часть конверта (внутри) */
+.envelope .body {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+/* Сообщение внутри конверта */
+.message {
+  font-size: 1.2em;
+  color: #333;
+  /* Цвет текста */
+  opacity: 0;
+  /* Скрытое сообщение */
+  transition: opacity 1s ease;
+  /* Плавное появление */
+}
+
+/* Видимое сообщение */
+.message.show {
+  opacity: 1;
+}
+
+/* Скрытое сообщение */
+.message.hide {
+  opacity: 0;
 }
