@@ -1,0 +1,126 @@
+/* Стиль контейнера приложения */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('/public/florw.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Основной контейнер */
+.app-container {
+  text-align: center;
+}
+
+/* Заголовок */
+h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  color: aquamarine;
+}
+
+/* Конверт */
+.envelope {
+  width: 600px;
+  height: 400px;
+  background: #c184b7;
+  /* Цвет фона конверта */
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  /* Указатель мыши меняется на руку */
+  transition: all 0.6s ease;
+  /* Плавность изменений */
+  perspective: 800px;
+  /* Для 3D-эффекта */
+}
+
+/* Верхняя и нижняя створки */
+.envelope .flap {
+  background: #ef9292;
+  /* Цвет створок */
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 200px;
+  transition: all 0.6s ease;
+  /* Анимация створок */
+  border: 1px solid #333;
+  /* Граница створок */
+}
+
+/* Верхняя створка в закрытом состоянии */
+.envelope.closed .top {
+  top: 0;
+  transform-origin: top;
+  /* Точка вращения — верхний край */
+  transform: rotateX(0deg);
+}
+
+/* Верхняя створка в открытом состоянии */
+.envelope.open .top {
+  top: 0;
+  transform-origin: top;
+  transform: rotateX(180deg);
+  /* Поворот на 180 градусов */
+}
+
+/* Нижняя створка в закрытом состоянии */
+.envelope.closed .bottom {
+  bottom: 0;
+  transform-origin: bottom;
+  /* Точка вращения — нижний край */
+  transform: rotateX(0deg);
+}
+
+/* Нижняя створка в открытом состоянии */
+.envelope.open .bottom {
+  bottom: 0;
+  transform-origin: bottom;
+  transform: rotateX(180deg);
+  /* Поворот на 180 градусов */
+}
+
+/* Основная часть конверта (внутри) */
+.envelope .body {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+/* Сообщение внутри конверта */
+.message {
+  font-size: 1.2em;
+  color: #333;
+  /* Цвет текста */
+  opacity: 0;
+  /* Скрытое сообщение */
+  transition: opacity 1s ease;
+  /* Плавное появление */
+}
+
+/* Видимое сообщение */
+.message.show {
+  opacity: 1;
+}
+
+/* Скрытое сообщение */
+.message.hide {
+  opacity: 0;
+}
+
+/* Стили для фотографии поздравления */
+.congratulation-photo {
+  width: 300px;
+  /* Укажите нужный размер */
+  height: auto;
+  /* Автоматически масштабировать высоту */
+  margin: 20px auto;
+  display: block;
+  /* Центрирует изображение */
+}
