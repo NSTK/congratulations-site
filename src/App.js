@@ -11,14 +11,14 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>С Днем Рождения!</h1>
+      <h1>Нажмите на квадрат</h1>
       {isOpen && <Confetti numberOfPieces={1500} />}
       <div className={`envelope ${isOpen ? 'open' : 'closed'}`} onClick={toggleEnvelope}>
         <div className="flap top"></div>
-        <div className="flap bottom">Открыть</div>
+        <div className="flap bottom"></div>
         <div className="body">
           <p className={`message ${isOpen ? "show" : "hide"}`}>
-            Пусть каждый день будет полон радости, тепла и вдохновения!
+            С Днем Рождения МАМА джан! Мы тебя очень любим ❤️
           </p>
           {isOpen && (
             <img
